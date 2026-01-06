@@ -1,0 +1,19 @@
+{% extends 'gradingapp/templates/base.html' %}
+
+{% block content %}
+<html>
+    <h1>
+    ACCEPTED ASSIGNMENTS
+    </h1>
+
+    {% if accepted_assignments %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for key,value in accepted_assignments.items %}
+                <input type="checkbox" id="student" name="student" value={{ value }}>
+                <label for="student"> {{ key }} </label><br>
+        {% endfor %}
+        <input type="submit" value="Submit">
+    {% endif %}
+  </html>
+  {% endblock %}
